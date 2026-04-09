@@ -52,7 +52,7 @@ export default function BookingsScreen() {
       const parsedUser = JSON.parse(user);
 
       const res = await fetch(
-        `http://10.132.8.33:5000/my-bookings/${parsedUser._id}`
+        `https://backend-j5ha.onrender.com/my-bookings/${parsedUser._id}`
       );
 
       if (!res.ok) throw new Error("API Error");

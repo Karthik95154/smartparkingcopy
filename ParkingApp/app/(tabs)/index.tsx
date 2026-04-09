@@ -456,7 +456,7 @@ export default function HomeScreen() {
   // ─── Fetch Parking Data ────────────────────────────────────────────────────
   const fetchParkingData = async (userCoords: any) => {
     try {
-      const res = await fetch("http://10.132.8.33:5000/parking");
+      const res = await fetch("https://backend-j5ha.onrender.com/parking");
       const data = await res.json();
       const parkingList = Array.isArray(data) ? data : [];
       

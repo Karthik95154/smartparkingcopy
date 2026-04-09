@@ -29,7 +29,7 @@ export default function LoginScreen() {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://10.132.8.33:5000/login", {
+      const res = await fetch("https://backend-j5ha.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

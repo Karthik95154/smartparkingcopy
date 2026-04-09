@@ -1,6 +1,6 @@
 import RazorpayCheckout from "react-native-razorpay";
 
-const BACKEND_URL = "http://10.132.8.33:5000";
+const BACKEND_URL = "https://backend-j5ha.onrender.com";
 
 //  MUST MATCH BACKEND KEY
 const RAZORPAY_KEY = "rzp_test_SYvFiZFRu1TNNt";

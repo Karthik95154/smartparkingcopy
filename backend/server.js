@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -8,19 +10,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* ================= DB CONNECTION ================= */
+/* ================= ROOT ================= */
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
+/* ================= DB ================= */
 mongoose
-  .connect("mongodb://127.0.0.1:27017/parkingDB")
-  .then(() => console.log("MongoDB Connected ✅"))
-  .catch((err) => console.log(err));
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Atlas connected ✅"))
+  .catch((err) => console.log("Mongo Error:", err));
 
-/* ================= RAZORPAY SETUP ================= */
-const RAZORPAY_KEY_ID = "rzp_test_SYvFiZFRu1TNNt";
-const RAZORPAY_SECRET = "sAsdpro7nRKW5STE1n6FQtlx";
-
+/* ================= RAZORPAY ================= */
 const razorpay = new Razorpay({
-  key_id: RAZORPAY_KEY_ID,
-  key_secret: RAZORPAY_SECRET,
+  key_id: process.env.RAZORPAY_KEY,
+  key_secret: process.env.RAZORPAY_SECRET,
 });
 
 /* ================= PARKING ================= */
@@ -35,8 +39,12 @@ const parkingSchema = new mongoose.Schema({
 const Parking = mongoose.model("Parking", parkingSchema);
 
 app.get("/parking", async (req, res) => {
-  const data = await Parking.find();
-  res.json(data);
+  try {
+    const data = await Parking.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch parking data" });
+  }
 });
 
 /* ================= USER ================= */
@@ -53,21 +61,6 @@ const User = mongoose.model("User", userSchema);
 app.post("/signup", async (req, res) => {
   try {
     const { name, email, phone, password } = req.body;
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[6-9]\d{9}$/;
-
-    if (!name || !email || !phone || !password) {
-      return res.status(400).json({ message: "All fields required" });
-    }
-
-    if (!emailRegex.test(email)) {
-      return res.status(400).json({ message: "Invalid email" });
-    }
-
-    if (!phoneRegex.test(phone)) {
-      return res.status(400).json({ message: "Invalid phone number" });
-    }
 
     const existing = await User.findOne({ email });
 
@@ -89,10 +82,14 @@ app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email, password });
+    const user = await User.findOne({ email: email.trim() });
 
     if (!user) {
-      return res.status(400).json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    if (user.password !== password) {
+      return res.status(400).json({ message: "Wrong password" });
     }
 
     res.json({ message: "Login successful", user });
@@ -100,7 +97,6 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 /* ================= BOOKING ================= */
 const bookingSchema = new mongoose.Schema({
   userId: String,
@@ -246,7 +242,7 @@ app.post("/verify-payment", async (req, res) => {
     const body = razorpay_order_id + "|" + razorpay_payment_id;
 
     const expectedSignature = crypto
-      .createHmac("sha256", RAZORPAY_SECRET)
+      .createHmac("sha256", process.env.RAZORPAY_SECRET)
       .update(body)
       .digest("hex");
 
@@ -305,7 +301,11 @@ app.delete("/cancel-booking/:id", async (req, res) => {
   }
 });
 
+
+
 /* ================= SERVER ================= */
-app.listen(5000, "0.0.0.0", () => {
-  console.log("Server running on port 5000 🚀");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT} 🚀`);
 });

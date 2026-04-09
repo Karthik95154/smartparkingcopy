@@ -30,7 +30,7 @@ const fetchStats = async () => {
     const parsed = JSON.parse(data);
 
     const res = await fetch(
-      `http://10.132.8.33:5000/my-bookings/${parsed._id}`
+      `https://backend-j5ha.onrender.com/my-bookings/${parsed._id}`
     );
 
     if (!res.ok) return;
