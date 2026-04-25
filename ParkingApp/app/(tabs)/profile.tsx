@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import * as ImagePicker from "expo-image-picker";
 import { Palette } from "../../constants/theme";
+import { getUserId, requestJson } from "../../constants/api";
+
+type ImagePickerModule = typeof import("expo-image-picker");
 
 export default function ProfileScreen() {
   const [user, setUser] = useState<any>(null);
@@ -29,13 +31,10 @@ const fetchStats = async () => {
 
     const parsed = JSON.parse(data);
 
-    const res = await fetch(
-      `https://backend-j5ha.onrender.com/my-bookings/${parsed._id}`
-    );
+    const userId = getUserId(parsed);
+    if (!userId) return;
 
-    if (!res.ok) return;
-
-    const bookings = await res.json();
+    const bookings = await requestJson<any[]>(`/my-bookings/${userId}`);
 
     let totalHours = 0;
     let totalAmount = 0;
@@ -57,21 +56,39 @@ const fetchStats = async () => {
 
 const [image, setImage] = useState<string | null>(null);
 
-  const requestPermission = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+  const loadImagePicker = async (): Promise<ImagePickerModule | null> => {
+    try {
+      return await import("expo-image-picker");
+    } catch (error) {
+      console.log("Image picker unavailable:", error);
+      Alert.alert(
+        "Image Picker Unavailable",
+        "This build does not include image upload yet. Rebuild the app after installing native modules."
+      );
+      return null;
+    }
+  };
+
+  const requestPermission = async (imagePicker: ImagePickerModule) => {
+    const { status } = await imagePicker.requestMediaLibraryPermissionsAsync();
     return status === "granted";
   };
 
   const handlePickImage = async () => {
-    const hasPermission = await requestPermission();
+    const imagePicker = await loadImagePicker();
+    if (!imagePicker) {
+      return;
+    }
+
+    const hasPermission = await requestPermission(imagePicker);
     if (!hasPermission) {
       Alert.alert("Permission Required", "Please grant camera roll access to upload a photo");
       return;
     }
 
     try {
-      const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      const result = await imagePicker.launchImageLibraryAsync({
+        mediaTypes: imagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [1, 1],
         quality: 0.8,
@@ -182,7 +199,7 @@ const [image, setImage] = useState<string | null>(null);
           color={Palette.secondary}
         />
         <OptionCard
-          icon="help-circle"
+          icon="help-outline"
           title="Help & Support"
           subtitle="Get help or report issues"
           onPress={() => alert("Coming Soon")}

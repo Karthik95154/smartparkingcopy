@@ -1,18 +1,19 @@
 {
   "expo": {
-    "name": "ParkingApp",
+    "name": "BookMyParking",
     "slug": "Parking-App",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon2.png",
+    "icon": "./assets/images/Simplified car parki.png",
     "scheme": "parkingapp",
     "userInterfaceStyle": "automatic",
-
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.karthik.parkingapp"
+      "bundleIdentifier": "com.karthik.parkingapp",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBXtfhg-lW1uZHQaKD9gJkLPnNysj63Sus"
+      }
     },
-
     "android": {
       "package": "com.karthik.parkingapp",
       "config": {
@@ -23,14 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon2.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "runtimeVersion": "1.0.0"
     },
-
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBXtfhg-lW1uZHQaKD9gJkLPnNysj63Sus"
+      }
     },
-
     "plugins": [
       "expo-router",
       [
@@ -44,12 +47,15 @@
       ],
       "@react-native-google-signin/google-signin"
     ],
-
     "extra": {
       "router": {},
       "eas": {
         "projectId": "6286edd5-7707-499e-b7d6-b94fcc75be57"
-      }
+      },
+      "googleMapsApiKey": "AIzaSyBXtfhg-lW1uZHQaKD9gJkLPnNysj63Sus"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/6286edd5-7707-499e-b7d6-b94fcc75be57"
     }
   }
 }

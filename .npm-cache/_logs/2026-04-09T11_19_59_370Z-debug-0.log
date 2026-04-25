@@ -1,0 +1,1306 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\Karthik\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.12.0
+3 silly config load:file:C:\Users\Karthik\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:E:\smartparkingcopy\backend\.npmrc
+5 silly config load:file:C:\Users\Karthik\.npmrc
+6 silly config load:file:C:\Users\Karthik\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" "e:\\smartparkingcopy\\.npm-cache"
+9 verbose logfile logs-max:10 dir:e:\smartparkingcopy\.npm-cache\_logs\2026-04-09T11_19_59_370Z-
+10 verbose logfile e:\smartparkingcopy\.npm-cache\_logs\2026-04-09T11_19_59_370Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ECONNREFUSED
+13 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+14 silly idealTree buildDeps
+15 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+16 silly reify moves {}
+17 silly audit report null
+18 verbose reify failed optional dependency E:\smartparkingcopy\backend\node_modules\fsevents
+19 silly reify mark deleted [ 'E:\\smartparkingcopy\\backend\\node_modules\\fsevents' ]
+20 http cache wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 5ms (cache hit)
+21 http cache whatwg-url@https://registry.npmjs.org/whatwg-url/-/whatwg-url-14.2.0.tgz 0ms (cache hit)
+22 http cache webidl-conversions@https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-7.0.0.tgz 0ms (cache hit)
+23 http cache vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 0ms (cache hit)
+24 http cache unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 0ms (cache hit)
+25 http cache undefsafe@https://registry.npmjs.org/undefsafe/-/undefsafe-2.0.5.tgz 0ms (cache hit)
+26 http cache tr46@https://registry.npmjs.org/tr46/-/tr46-5.1.1.tgz 0ms (cache hit)
+27 http cache type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 0ms (cache hit)
+28 http cache touch@https://registry.npmjs.org/touch/-/touch-3.1.1.tgz 0ms (cache hit)
+29 http cache toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 0ms (cache hit)
+30 http cache to-regex-range@https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz 0ms (cache hit)
+31 http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 0ms (cache hit)
+32 http cache simple-update-notifier@https://registry.npmjs.org/simple-update-notifier/-/simple-update-notifier-2.0.0.tgz 0ms (cache hit)
+33 http cache sparse-bitfield@https://registry.npmjs.org/sparse-bitfield/-/sparse-bitfield-3.0.3.tgz 0ms (cache hit)
+34 http cache side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 0ms (cache hit)
+35 http cache sift@https://registry.npmjs.org/sift/-/sift-17.1.3.tgz 0ms (cache hit)
+36 http cache side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 0ms (cache hit)
+37 http cache side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 0ms (cache hit)
+38 http cache side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 0ms (cache hit)
+39 http cache setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 0ms (cache hit)
+40 http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.1.tgz 0ms (cache hit)
+41 http cache send@https://registry.npmjs.org/send/-/send-1.2.1.tgz 0ms (cache hit)
+42 http cache semver@https://registry.npmjs.org/semver/-/semver-7.7.4.tgz 0ms (cache hit)
+43 http cache safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 0ms (cache hit)
+44 http cache router@https://registry.npmjs.org/router/-/router-2.2.0.tgz 0ms (cache hit)
+45 http cache readdirp@https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz 0ms (cache hit)
+46 http cache razorpay@https://registry.npmjs.org/razorpay/-/razorpay-2.9.6.tgz 0ms (cache hit)
+47 http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 0ms (cache hit)
+48 http cache range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 0ms (cache hit)
+49 http cache qs@https://registry.npmjs.org/qs/-/qs-6.15.0.tgz 0ms (cache hit)
+50 http cache punycode@https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz 0ms (cache hit)
+51 http cache pstree.remy@https://registry.npmjs.org/pstree.remy/-/pstree.remy-1.1.8.tgz 0ms (cache hit)
+52 http cache proxy-from-env@https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-2.1.0.tgz 0ms (cache hit)
+53 http cache picomatch@https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz 0ms (cache hit)
+54 http cache proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 0ms (cache hit)
+55 http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 0ms (cache hit)
+56 http cache parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 0ms (cache hit)
+57 http cache once@https://registry.npmjs.org/once/-/once-1.4.0.tgz 0ms (cache hit)
+58 http cache on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 0ms (cache hit)
+59 http cache object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 0ms (cache hit)
+60 http cache object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 0ms (cache hit)
+61 http cache nodemon@https://registry.npmjs.org/nodemon/-/nodemon-3.1.14.tgz 0ms (cache hit)
+62 http cache normalize-path@https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz 0ms (cache hit)
+63 http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+64 http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 0ms (cache hit)
+65 http cache mquery@https://registry.npmjs.org/mquery/-/mquery-6.0.0.tgz 0ms (cache hit)
+66 http cache mpath@https://registry.npmjs.org/mpath/-/mpath-0.9.0.tgz 0ms (cache hit)
+67 http cache mongodb-connection-string-url@https://registry.npmjs.org/mongodb-connection-string-url/-/mongodb-connection-string-url-7.0.1.tgz 0ms (cache hit)
+68 http cache mongoose@https://registry.npmjs.org/mongoose/-/mongoose-9.3.1.tgz 0ms (cache hit)
+69 http cache mongodb@https://registry.npmjs.org/mongodb/-/mongodb-7.1.0.tgz 0ms (cache hit)
+70 http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 0ms (cache hit)
+71 http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 0ms (cache hit)
+72 http cache memory-pager@https://registry.npmjs.org/memory-pager/-/memory-pager-1.5.0.tgz 0ms (cache hit)
+73 http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 0ms (cache hit)
+74 http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 0ms (cache hit)
+75 http cache math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 0ms (cache hit)
+76 http cache kareem@https://registry.npmjs.org/kareem/-/kareem-3.2.0.tgz 0ms (cache hit)
+77 http cache is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 0ms (cache hit)
+78 http cache is-number@https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz 0ms (cache hit)
+79 http cache is-glob@https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz 0ms (cache hit)
+80 http cache is-extglob@https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz 0ms (cache hit)
+81 http cache ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 0ms (cache hit)
+82 http cache is-binary-path@https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz 0ms (cache hit)
+83 http cache inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 0ms (cache hit)
+84 http cache ignore-by-default@https://registry.npmjs.org/ignore-by-default/-/ignore-by-default-1.0.1.tgz 0ms (cache hit)
+85 http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.2.tgz 0ms (cache hit)
+86 http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 0ms (cache hit)
+87 http cache hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 0ms (cache hit)
+88 http cache has-tostringtag@https://registry.npmjs.org/has-tostringtag/-/has-tostringtag-1.0.2.tgz 0ms (cache hit)
+89 http cache has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 0ms (cache hit)
+90 http cache gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 0ms (cache hit)
+91 http cache glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz 0ms (cache hit)
+92 http cache get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 0ms (cache hit)
+93 http cache get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 0ms (cache hit)
+94 http cache function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 0ms (cache hit)
+95 http cache fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 0ms (cache hit)
+96 http cache forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 0ms (cache hit)
+97 http cache form-data@https://registry.npmjs.org/form-data/-/form-data-4.0.5.tgz 0ms (cache hit)
+98 http cache follow-redirects@https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.11.tgz 0ms (cache hit)
+99 http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.1.tgz 0ms (cache hit)
+100 http cache fill-range@https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz 0ms (cache hit)
+101 http cache express@https://registry.npmjs.org/express/-/express-5.2.1.tgz 0ms (cache hit)
+102 http cache etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 0ms (cache hit)
+103 http cache escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 0ms (cache hit)
+104 http cache es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 0ms (cache hit)
+105 http cache es-set-tostringtag@https://registry.npmjs.org/es-set-tostringtag/-/es-set-tostringtag-2.1.0.tgz 0ms (cache hit)
+106 http cache es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 0ms (cache hit)
+107 http cache es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 0ms (cache hit)
+108 http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 0ms (cache hit)
+109 http cache ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 0ms (cache hit)
+110 http cache dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 0ms (cache hit)
+111 http cache dotenv@https://registry.npmjs.org/dotenv/-/dotenv-17.4.1.tgz 0ms (cache hit)
+112 http cache depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 0ms (cache hit)
+113 http cache delayed-stream@https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz 0ms (cache hit)
+114 http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+115 http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 0ms (cache hit)
+116 http cache cors@https://registry.npmjs.org/cors/-/cors-2.8.6.tgz 0ms (cache hit)
+117 http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 0ms (cache hit)
+118 http cache combined-stream@https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz 0ms (cache hit)
+119 http cache cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz 0ms (cache hit)
+120 http cache chokidar@https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz 0ms (cache hit)
+121 http cache content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 0ms (cache hit)
+122 http cache call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 0ms (cache hit)
+123 http cache bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 1ms (cache hit)
+124 http cache call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 0ms (cache hit)
+125 http cache braces@https://registry.npmjs.org/braces/-/braces-3.0.3.tgz 0ms (cache hit)
+126 http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.2.tgz 0ms (cache hit)
+127 http cache bson@https://registry.npmjs.org/bson/-/bson-7.2.0.tgz 0ms (cache hit)
+128 http cache asynckit@https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz 0ms (cache hit)
+129 http cache binary-extensions@https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.3.0.tgz 0ms (cache hit)
+130 http cache anymatch@https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz 0ms (cache hit)
+131 http cache @types/whatwg-url@https://registry.npmjs.org/@types/whatwg-url/-/whatwg-url-13.0.0.tgz 0ms (cache hit)
+132 http cache axios@https://registry.npmjs.org/axios/-/axios-1.14.0.tgz 0ms (cache hit)
+133 http cache accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 0ms (cache hit)
+134 http cache @types/webidl-conversions@https://registry.npmjs.org/@types/webidl-conversions/-/webidl-conversions-7.0.3.tgz 0ms (cache hit)
+135 http cache @mongodb-js/saslprep@https://registry.npmjs.org/@mongodb-js/saslprep/-/saslprep-1.4.6.tgz 0ms (cache hit)
+136 http cache supports-color@https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz 0ms (cache hit)
+137 http cache minimatch@https://registry.npmjs.org/minimatch/-/minimatch-10.2.5.tgz 0ms (cache hit)
+138 http cache has-flag@https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz 0ms (cache hit)
+139 http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz 0ms (cache hit)
+140 http cache balanced-match@https://registry.npmjs.org/balanced-match/-/balanced-match-4.0.4.tgz 0ms (cache hit)
+141 http cache brace-expansion@https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.5.tgz 0ms (cache hit)
+142 silly tarball no local data for wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz. Extracting by manifest.
+143 http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz 0ms (cache hit)
+144 silly tarball no local data for whatwg-url@https://registry.npmjs.org/whatwg-url/-/whatwg-url-14.2.0.tgz. Extracting by manifest.
+145 silly tarball no local data for webidl-conversions@https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-7.0.0.tgz. Extracting by manifest.
+146 silly tarball no local data for vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz. Extracting by manifest.
+147 silly tarball no local data for unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz. Extracting by manifest.
+148 silly tarball no local data for undefsafe@https://registry.npmjs.org/undefsafe/-/undefsafe-2.0.5.tgz. Extracting by manifest.
+149 silly tarball no local data for tr46@https://registry.npmjs.org/tr46/-/tr46-5.1.1.tgz. Extracting by manifest.
+150 silly tarball no local data for type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz. Extracting by manifest.
+151 silly tarball no local data for touch@https://registry.npmjs.org/touch/-/touch-3.1.1.tgz. Extracting by manifest.
+152 silly tarball no local data for toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz. Extracting by manifest.
+153 silly tarball no local data for to-regex-range@https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz. Extracting by manifest.
+154 silly tarball no local data for statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz. Extracting by manifest.
+155 silly tarball no local data for simple-update-notifier@https://registry.npmjs.org/simple-update-notifier/-/simple-update-notifier-2.0.0.tgz. Extracting by manifest.
+156 silly tarball no local data for sparse-bitfield@https://registry.npmjs.org/sparse-bitfield/-/sparse-bitfield-3.0.3.tgz. Extracting by manifest.
+157 silly tarball no local data for side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz. Extracting by manifest.
+158 silly tarball no local data for sift@https://registry.npmjs.org/sift/-/sift-17.1.3.tgz. Extracting by manifest.
+159 silly tarball no local data for side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz. Extracting by manifest.
+160 silly tarball no local data for side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz. Extracting by manifest.
+161 silly tarball no local data for side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz. Extracting by manifest.
+162 silly tarball no local data for setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz. Extracting by manifest.
+163 silly tarball no local data for serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.1.tgz. Extracting by manifest.
+164 silly tarball no local data for send@https://registry.npmjs.org/send/-/send-1.2.1.tgz. Extracting by manifest.
+165 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-7.7.4.tgz. Extracting by manifest.
+166 silly tarball no local data for safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz. Extracting by manifest.
+167 silly tarball no local data for router@https://registry.npmjs.org/router/-/router-2.2.0.tgz. Extracting by manifest.
+168 silly tarball no local data for readdirp@https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz. Extracting by manifest.
+169 silly tarball no local data for razorpay@https://registry.npmjs.org/razorpay/-/razorpay-2.9.6.tgz. Extracting by manifest.
+170 silly tarball no local data for raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz. Extracting by manifest.
+171 silly tarball no local data for range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz. Extracting by manifest.
+172 silly tarball no local data for qs@https://registry.npmjs.org/qs/-/qs-6.15.0.tgz. Extracting by manifest.
+173 silly tarball no local data for punycode@https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz. Extracting by manifest.
+174 silly tarball no local data for pstree.remy@https://registry.npmjs.org/pstree.remy/-/pstree.remy-1.1.8.tgz. Extracting by manifest.
+175 silly tarball no local data for proxy-from-env@https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-2.1.0.tgz. Extracting by manifest.
+176 silly tarball no local data for picomatch@https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz. Extracting by manifest.
+177 silly tarball no local data for proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz. Extracting by manifest.
+178 silly tarball no local data for path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz. Extracting by manifest.
+179 silly tarball no local data for parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz. Extracting by manifest.
+180 silly tarball no local data for once@https://registry.npmjs.org/once/-/once-1.4.0.tgz. Extracting by manifest.
+181 silly tarball no local data for on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz. Extracting by manifest.
+182 silly tarball no local data for object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz. Extracting by manifest.
+183 silly tarball no local data for object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz. Extracting by manifest.
+184 silly tarball no local data for nodemon@https://registry.npmjs.org/nodemon/-/nodemon-3.1.14.tgz. Extracting by manifest.
+185 silly tarball no local data for normalize-path@https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz. Extracting by manifest.
+186 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz. Extracting by manifest.
+187 silly tarball no local data for negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz. Extracting by manifest.
+188 silly tarball no local data for mquery@https://registry.npmjs.org/mquery/-/mquery-6.0.0.tgz. Extracting by manifest.
+189 silly tarball no local data for mpath@https://registry.npmjs.org/mpath/-/mpath-0.9.0.tgz. Extracting by manifest.
+190 silly tarball no local data for mongodb-connection-string-url@https://registry.npmjs.org/mongodb-connection-string-url/-/mongodb-connection-string-url-7.0.1.tgz. Extracting by manifest.
+191 silly tarball no local data for mongoose@https://registry.npmjs.org/mongoose/-/mongoose-9.3.1.tgz. Extracting by manifest.
+192 silly tarball no local data for mongodb@https://registry.npmjs.org/mongodb/-/mongodb-7.1.0.tgz. Extracting by manifest.
+193 silly tarball no local data for mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz. Extracting by manifest.
+194 silly tarball no local data for merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz. Extracting by manifest.
+195 silly tarball no local data for memory-pager@https://registry.npmjs.org/memory-pager/-/memory-pager-1.5.0.tgz. Extracting by manifest.
+196 silly tarball no local data for mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz. Extracting by manifest.
+197 silly tarball no local data for media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz. Extracting by manifest.
+198 silly tarball no local data for math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz. Extracting by manifest.
+199 silly tarball no local data for kareem@https://registry.npmjs.org/kareem/-/kareem-3.2.0.tgz. Extracting by manifest.
+200 silly tarball no local data for is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz. Extracting by manifest.
+201 silly tarball no local data for is-number@https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz. Extracting by manifest.
+202 silly tarball no local data for is-glob@https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz. Extracting by manifest.
+203 silly tarball no local data for is-extglob@https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz. Extracting by manifest.
+204 silly tarball no local data for ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz. Extracting by manifest.
+205 silly tarball no local data for is-binary-path@https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz. Extracting by manifest.
+206 silly tarball no local data for inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz. Extracting by manifest.
+207 silly tarball no local data for ignore-by-default@https://registry.npmjs.org/ignore-by-default/-/ignore-by-default-1.0.1.tgz. Extracting by manifest.
+208 silly tarball no local data for iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.2.tgz. Extracting by manifest.
+209 silly tarball no local data for http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz. Extracting by manifest.
+210 silly tarball no local data for hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz. Extracting by manifest.
+211 silly tarball no local data for has-tostringtag@https://registry.npmjs.org/has-tostringtag/-/has-tostringtag-1.0.2.tgz. Extracting by manifest.
+212 silly tarball no local data for has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz. Extracting by manifest.
+213 silly tarball no local data for gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz. Extracting by manifest.
+214 silly tarball no local data for glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz. Extracting by manifest.
+215 silly tarball no local data for get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz. Extracting by manifest.
+216 silly tarball no local data for get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz. Extracting by manifest.
+217 silly tarball no local data for function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz. Extracting by manifest.
+218 silly tarball no local data for fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz. Extracting by manifest.
+219 silly tarball no local data for forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz. Extracting by manifest.
+220 silly tarball no local data for form-data@https://registry.npmjs.org/form-data/-/form-data-4.0.5.tgz. Extracting by manifest.
+221 silly tarball no local data for follow-redirects@https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.11.tgz. Extracting by manifest.
+222 silly tarball no local data for finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.1.tgz. Extracting by manifest.
+223 silly tarball no local data for fill-range@https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz. Extracting by manifest.
+224 silly tarball no local data for express@https://registry.npmjs.org/express/-/express-5.2.1.tgz. Extracting by manifest.
+225 silly tarball no local data for etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz. Extracting by manifest.
+226 silly tarball no local data for escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz. Extracting by manifest.
+227 silly tarball no local data for es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz. Extracting by manifest.
+228 silly tarball no local data for es-set-tostringtag@https://registry.npmjs.org/es-set-tostringtag/-/es-set-tostringtag-2.1.0.tgz. Extracting by manifest.
+229 silly tarball no local data for es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz. Extracting by manifest.
+230 silly tarball no local data for es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz. Extracting by manifest.
+231 silly tarball no local data for encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz. Extracting by manifest.
+232 silly tarball no local data for ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz. Extracting by manifest.
+233 silly tarball no local data for dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz. Extracting by manifest.
+234 silly tarball no local data for dotenv@https://registry.npmjs.org/dotenv/-/dotenv-17.4.1.tgz. Extracting by manifest.
+235 silly tarball no local data for depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz. Extracting by manifest.
+236 silly tarball no local data for delayed-stream@https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz. Extracting by manifest.
+237 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz. Extracting by manifest.
+238 silly tarball no local data for cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz. Extracting by manifest.
+239 silly tarball no local data for cors@https://registry.npmjs.org/cors/-/cors-2.8.6.tgz. Extracting by manifest.
+240 silly tarball no local data for content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz. Extracting by manifest.
+241 silly tarball no local data for combined-stream@https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz. Extracting by manifest.
+242 silly tarball no local data for cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz. Extracting by manifest.
+243 silly tarball no local data for chokidar@https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz. Extracting by manifest.
+244 silly tarball no local data for content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz. Extracting by manifest.
+245 silly tarball no local data for call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz. Extracting by manifest.
+246 silly tarball no local data for bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz. Extracting by manifest.
+247 silly tarball no local data for call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz. Extracting by manifest.
+248 silly tarball no local data for braces@https://registry.npmjs.org/braces/-/braces-3.0.3.tgz. Extracting by manifest.
+249 silly tarball no local data for body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.2.tgz. Extracting by manifest.
+250 silly tarball no local data for bson@https://registry.npmjs.org/bson/-/bson-7.2.0.tgz. Extracting by manifest.
+251 silly tarball no local data for asynckit@https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz. Extracting by manifest.
+252 silly tarball no local data for binary-extensions@https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.3.0.tgz. Extracting by manifest.
+253 silly tarball no local data for anymatch@https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz. Extracting by manifest.
+254 silly tarball no local data for @types/whatwg-url@https://registry.npmjs.org/@types/whatwg-url/-/whatwg-url-13.0.0.tgz. Extracting by manifest.
+255 silly tarball no local data for axios@https://registry.npmjs.org/axios/-/axios-1.14.0.tgz. Extracting by manifest.
+256 silly tarball no local data for accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz. Extracting by manifest.
+257 silly tarball no local data for @types/webidl-conversions@https://registry.npmjs.org/@types/webidl-conversions/-/webidl-conversions-7.0.3.tgz. Extracting by manifest.
+258 silly tarball no local data for @mongodb-js/saslprep@https://registry.npmjs.org/@mongodb-js/saslprep/-/saslprep-1.4.6.tgz. Extracting by manifest.
+259 silly tarball no local data for supports-color@https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz. Extracting by manifest.
+260 silly tarball no local data for minimatch@https://registry.npmjs.org/minimatch/-/minimatch-10.2.5.tgz. Extracting by manifest.
+261 silly tarball no local data for has-flag@https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz. Extracting by manifest.
+262 silly tarball no local data for mime-types@https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz. Extracting by manifest.
+263 silly tarball no local data for balanced-match@https://registry.npmjs.org/balanced-match/-/balanced-match-4.0.4.tgz. Extracting by manifest.
+264 silly tarball no local data for brace-expansion@https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.5.tgz. Extracting by manifest.
+265 silly tarball no local data for mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz. Extracting by manifest.
+266 warn cleanup Failed to remove some directories [
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\accepts',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\accepts'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\accepts'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\asynckit',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\asynckit'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\asynckit'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\anymatch',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\anymatch'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\anymatch'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\axios',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\axios'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\axios'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\binary-extensions',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\binary-extensions'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\binary-extensions'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\body-parser',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\body-parser'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\body-parser'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\braces',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\braces'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\braces'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\bson',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\bson'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\bson'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\bytes',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\bytes'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\bytes'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\call-bind-apply-helpers',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\call-bind-apply-helpers'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\call-bind-apply-helpers'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\combined-stream',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\combined-stream'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\combined-stream'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\call-bound',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\call-bound'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\call-bound'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\chokidar',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\chokidar'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\chokidar'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\content-disposition',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\content-disposition'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\content-disposition'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\content-type',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\content-type'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\content-type'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\cookie-signature',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\cookie-signature'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\cookie-signature'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\cookie',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\cookie'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\cookie'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\cors',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\cors'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\cors'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\delayed-stream',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\delayed-stream'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\delayed-stream'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\debug',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\debug'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\debug'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\dotenv',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\dotenv'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\dotenv'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\depd',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\depd'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\depd'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\dunder-proto',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\dunder-proto'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\dunder-proto'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\ee-first',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\ee-first'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\ee-first'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\encodeurl',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\encodeurl'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\encodeurl'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\es-define-property',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\es-define-property'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\es-define-property'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\es-errors',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\es-errors'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\es-errors'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\es-object-atoms',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\es-object-atoms'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\es-object-atoms'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\es-set-tostringtag',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\es-set-tostringtag'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\es-set-tostringtag'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\escape-html',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\escape-html'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\escape-html'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\express',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\express'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\express'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\fill-range',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\fill-range'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\fill-range'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\etag',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\etag'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\etag'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\forwarded',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\forwarded'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\forwarded'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\finalhandler',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\finalhandler'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\finalhandler'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\follow-redirects',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\follow-redirects'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\follow-redirects'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\fresh',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\fresh'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\fresh'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\fsevents',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\fsevents'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\fsevents'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\function-bind',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\function-bind'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\function-bind'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\get-intrinsic',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\get-intrinsic'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\get-intrinsic'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\get-proto',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\get-proto'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\get-proto'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\glob-parent',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\glob-parent'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\glob-parent'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\gopd',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\gopd'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\gopd'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\has-symbols',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\has-symbols'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\has-symbols'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\has-tostringtag',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\has-tostringtag'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\has-tostringtag'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\hasown',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\hasown'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\hasown'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\http-errors',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\http-errors'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\http-errors'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\iconv-lite',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\iconv-lite'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\iconv-lite'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\ignore-by-default',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\ignore-by-default'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\ignore-by-default'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\is-binary-path',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\is-binary-path'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\is-binary-path'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\inherits',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\inherits'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\inherits'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\ipaddr.js',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\ipaddr.js'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\ipaddr.js'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\is-extglob',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\is-extglob'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\is-extglob'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\is-glob',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\is-glob'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\is-glob'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\is-promise',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\is-promise'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\is-promise'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\is-number',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\is-number'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\is-number'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\kareem',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\kareem'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\kareem'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\math-intrinsics',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\math-intrinsics'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\math-intrinsics'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\media-typer',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\media-typer'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\media-typer'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\memory-pager',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\memory-pager'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\memory-pager'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\merge-descriptors',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\merge-descriptors'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\merge-descriptors'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mime-db',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mime-db'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mime-db'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mime-types',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mime-types'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mime-types'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mongodb-connection-string-url',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mongodb-connection-string-url'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mongodb-connection-string-url'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mongodb',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mongodb'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mongodb'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mongoose',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mongoose'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mongoose'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mpath',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mpath'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mpath'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\mquery',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\mquery'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\mquery'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\ms',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\ms'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\ms'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\negotiator',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\negotiator'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\negotiator'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\normalize-path',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\normalize-path'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\normalize-path'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\object-assign',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\object-assign'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\object-assign'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\object-inspect',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\object-inspect'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\object-inspect'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\on-finished',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\on-finished'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\on-finished'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\once',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\once'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\once'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\parseurl',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\parseurl'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\parseurl'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\picomatch',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\picomatch'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\picomatch'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\path-to-regexp',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\path-to-regexp'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\path-to-regexp'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\proxy-addr',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\proxy-addr'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\proxy-addr'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\proxy-from-env',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\proxy-from-env'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\proxy-from-env'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\pstree.remy',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\pstree.remy'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\pstree.remy'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\punycode',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\punycode'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\punycode'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\qs',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\qs'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\qs'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\range-parser',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\range-parser'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\range-parser'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\razorpay',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\razorpay'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\razorpay'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\raw-body',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\raw-body'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\raw-body'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\router',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\router'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\router'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\readdirp',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\readdirp'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\readdirp'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\safer-buffer',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\safer-buffer'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\safer-buffer'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\semver',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\semver'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\semver'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\serve-static',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\serve-static'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\serve-static'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\send',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\send'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\send'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\setprototypeof',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\setprototypeof'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\setprototypeof'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\side-channel',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\side-channel'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\side-channel'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\side-channel-list',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\side-channel-list'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\side-channel-list'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\side-channel-map',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\side-channel-map'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\side-channel-map'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\side-channel-weakmap',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\side-channel-weakmap'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\side-channel-weakmap'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\sift',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\sift'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\sift'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\simple-update-notifier',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\simple-update-notifier'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\simple-update-notifier'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   [
+266 warn cleanup     '\\\\?\\E:\\smartparkingcopy\\backend\\node_modules\\sparse-bitfield',
+266 warn cleanup     [Error: EPERM: operation not permitted, rmdir 'E:\smartparkingcopy\backend\node_modules\sparse-bitfield'] {
+266 warn cleanup       errno: -4048,
+266 warn cleanup       code: 'EPERM',
+266 warn cleanup       syscall: 'rmdir',
+266 warn cleanup       path: 'E:\\smartparkingcopy\\backend\\node_modules\\sparse-bitfield'
+266 warn cleanup     }
+266 warn cleanup   ],
+266 warn cleanup   ... 22 more items
+266 warn cleanup ]
+267 verbose stack Error: request to https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz failed: cache mode is 'only-if-cached' but no cached response is available.
+267 verbose stack     at cacheFetch (C:\Users\Karthik\AppData\Roaming\npm\node_modules\npm\node_modules\make-fetch-happen\lib\cache\index.js:12:13)
+267 verbose stack     at async fetch (C:\Users\Karthik\AppData\Roaming\npm\node_modules\npm\node_modules\make-fetch-happen\lib\fetch.js:98:7)
+268 error code ENOTCACHED
+269 error request to https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz failed: cache mode is 'only-if-cached' but no cached response is available.
+270 silly unfinished npm timer reify 1775733600846
+271 silly unfinished npm timer reify:unpack 1775733601555
+272 silly unfinished npm timer reifyNode:node_modules/wrappy 1775733601555
+273 silly unfinished npm timer reifyNode:node_modules/whatwg-url 1775733601555
+274 silly unfinished npm timer reifyNode:node_modules/webidl-conversions 1775733601555
+275 silly unfinished npm timer reifyNode:node_modules/vary 1775733601555
+276 silly unfinished npm timer reifyNode:node_modules/unpipe 1775733601555
+277 silly unfinished npm timer reifyNode:node_modules/undefsafe 1775733601555
+278 silly unfinished npm timer reifyNode:node_modules/type-is 1775733601555
+279 silly unfinished npm timer reifyNode:node_modules/tr46 1775733601555
+280 silly unfinished npm timer reifyNode:node_modules/touch 1775733601555
+281 silly unfinished npm timer reifyNode:node_modules/toidentifier 1775733601555
+282 silly unfinished npm timer reifyNode:node_modules/to-regex-range 1775733601555
+283 silly unfinished npm timer reifyNode:node_modules/statuses 1775733601555
+284 silly unfinished npm timer reifyNode:node_modules/sparse-bitfield 1775733601555
+285 silly unfinished npm timer reifyNode:node_modules/simple-update-notifier 1775733601555
+286 silly unfinished npm timer reifyNode:node_modules/sift 1775733601555
+287 silly unfinished npm timer reifyNode:node_modules/side-channel-weakmap 1775733601555
+288 silly unfinished npm timer reifyNode:node_modules/side-channel-map 1775733601555
+289 silly unfinished npm timer reifyNode:node_modules/side-channel-list 1775733601556
+290 silly unfinished npm timer reifyNode:node_modules/side-channel 1775733601556
+291 silly unfinished npm timer reifyNode:node_modules/setprototypeof 1775733601556
+292 silly unfinished npm timer reifyNode:node_modules/serve-static 1775733601556
+293 silly unfinished npm timer reifyNode:node_modules/send 1775733601556
+294 silly unfinished npm timer reifyNode:node_modules/semver 1775733601556
+295 silly unfinished npm timer reifyNode:node_modules/safer-buffer 1775733601556
+296 silly unfinished npm timer reifyNode:node_modules/router 1775733601556
+297 silly unfinished npm timer reifyNode:node_modules/readdirp 1775733601556
+298 silly unfinished npm timer reifyNode:node_modules/razorpay 1775733601556
+299 silly unfinished npm timer reifyNode:node_modules/raw-body 1775733601556
+300 silly unfinished npm timer reifyNode:node_modules/range-parser 1775733601556
+301 silly unfinished npm timer reifyNode:node_modules/qs 1775733601556
+302 silly unfinished npm timer reifyNode:node_modules/punycode 1775733601556
+303 silly unfinished npm timer reifyNode:node_modules/pstree.remy 1775733601556
+304 silly unfinished npm timer reifyNode:node_modules/proxy-from-env 1775733601556
+305 silly unfinished npm timer reifyNode:node_modules/proxy-addr 1775733601556
+306 silly unfinished npm timer reifyNode:node_modules/picomatch 1775733601556
+307 silly unfinished npm timer reifyNode:node_modules/path-to-regexp 1775733601556
+308 silly unfinished npm timer reifyNode:node_modules/parseurl 1775733601556
+309 silly unfinished npm timer reifyNode:node_modules/once 1775733601556
+310 silly unfinished npm timer reifyNode:node_modules/on-finished 1775733601556
+311 silly unfinished npm timer reifyNode:node_modules/object-inspect 1775733601556
+312 silly unfinished npm timer reifyNode:node_modules/object-assign 1775733601556
+313 silly unfinished npm timer reifyNode:node_modules/normalize-path 1775733601556
+314 silly unfinished npm timer reifyNode:node_modules/nodemon 1775733601556
+315 silly unfinished npm timer reifyNode:node_modules/nodemon/node_modules/supports-color 1775733601556
+316 silly unfinished npm timer reifyNode:node_modules/nodemon/node_modules/minimatch 1775733601556
+317 silly unfinished npm timer reifyNode:node_modules/nodemon/node_modules/has-flag 1775733601556
+318 silly unfinished npm timer reifyNode:node_modules/nodemon/node_modules/brace-expansion 1775733601556
+319 silly unfinished npm timer reifyNode:node_modules/nodemon/node_modules/balanced-match 1775733601556
+320 silly unfinished npm timer reifyNode:node_modules/negotiator 1775733601556
+321 silly unfinished npm timer reifyNode:node_modules/ms 1775733601556
+322 silly unfinished npm timer reifyNode:node_modules/mquery 1775733601556
+323 silly unfinished npm timer reifyNode:node_modules/mpath 1775733601556
+324 silly unfinished npm timer reifyNode:node_modules/mongoose 1775733601556
+325 silly unfinished npm timer reifyNode:node_modules/mongodb-connection-string-url 1775733601556
+326 silly unfinished npm timer reifyNode:node_modules/mongodb 1775733601556
+327 silly unfinished npm timer reifyNode:node_modules/mime-types 1775733601556
+328 silly unfinished npm timer reifyNode:node_modules/mime-db 1775733601556
+329 silly unfinished npm timer reifyNode:node_modules/merge-descriptors 1775733601556
+330 silly unfinished npm timer reifyNode:node_modules/memory-pager 1775733601556
+331 silly unfinished npm timer reifyNode:node_modules/media-typer 1775733601556
+332 silly unfinished npm timer reifyNode:node_modules/math-intrinsics 1775733601556
+333 silly unfinished npm timer reifyNode:node_modules/kareem 1775733601556
+334 silly unfinished npm timer reifyNode:node_modules/is-promise 1775733601556
+335 silly unfinished npm timer reifyNode:node_modules/is-number 1775733601556
+336 silly unfinished npm timer reifyNode:node_modules/is-glob 1775733601556
+337 silly unfinished npm timer reifyNode:node_modules/is-extglob 1775733601556
+338 silly unfinished npm timer reifyNode:node_modules/is-binary-path 1775733601556
+339 silly unfinished npm timer reifyNode:node_modules/ipaddr.js 1775733601556
+340 silly unfinished npm timer reifyNode:node_modules/inherits 1775733601556
+341 silly unfinished npm timer reifyNode:node_modules/ignore-by-default 1775733601556
+342 silly unfinished npm timer reifyNode:node_modules/iconv-lite 1775733601556
+343 silly unfinished npm timer reifyNode:node_modules/http-errors 1775733601556
+344 silly unfinished npm timer reifyNode:node_modules/hasown 1775733601556
+345 silly unfinished npm timer reifyNode:node_modules/has-tostringtag 1775733601556
+346 silly unfinished npm timer reifyNode:node_modules/has-symbols 1775733601556
+347 silly unfinished npm timer reifyNode:node_modules/gopd 1775733601556
+348 silly unfinished npm timer reifyNode:node_modules/glob-parent 1775733601556
+349 silly unfinished npm timer reifyNode:node_modules/get-proto 1775733601556
+350 silly unfinished npm timer reifyNode:node_modules/get-intrinsic 1775733601556
+351 silly unfinished npm timer reifyNode:node_modules/function-bind 1775733601556
+352 silly unfinished npm timer reifyNode:node_modules/fresh 1775733601556
+353 silly unfinished npm timer reifyNode:node_modules/forwarded 1775733601556
+354 silly unfinished npm timer reifyNode:node_modules/form-data 1775733601556
+355 silly unfinished npm timer reifyNode:node_modules/form-data/node_modules/mime-types 1775733601556
+356 silly unfinished npm timer reifyNode:node_modules/form-data/node_modules/mime-db 1775733601556
+357 silly unfinished npm timer reifyNode:node_modules/follow-redirects 1775733601556
+358 silly unfinished npm timer reifyNode:node_modules/finalhandler 1775733601556
+359 silly unfinished npm timer reifyNode:node_modules/fill-range 1775733601556
+360 silly unfinished npm timer reifyNode:node_modules/express 1775733601556
+361 silly unfinished npm timer reifyNode:node_modules/etag 1775733601556
+362 silly unfinished npm timer reifyNode:node_modules/escape-html 1775733601556
+363 silly unfinished npm timer reifyNode:node_modules/es-set-tostringtag 1775733601556
+364 silly unfinished npm timer reifyNode:node_modules/es-object-atoms 1775733601556
+365 silly unfinished npm timer reifyNode:node_modules/es-errors 1775733601556
+366 silly unfinished npm timer reifyNode:node_modules/es-define-property 1775733601556
+367 silly unfinished npm timer reifyNode:node_modules/encodeurl 1775733601556
+368 silly unfinished npm timer reifyNode:node_modules/ee-first 1775733601556
+369 silly unfinished npm timer reifyNode:node_modules/dunder-proto 1775733601556
+370 silly unfinished npm timer reifyNode:node_modules/dotenv 1775733601556
+371 silly unfinished npm timer reifyNode:node_modules/depd 1775733601556
+372 silly unfinished npm timer reifyNode:node_modules/delayed-stream 1775733601556
+373 silly unfinished npm timer reifyNode:node_modules/debug 1775733601556
+374 silly unfinished npm timer reifyNode:node_modules/cors 1775733601556
+375 silly unfinished npm timer reifyNode:node_modules/cookie-signature 1775733601556
+376 silly unfinished npm timer reifyNode:node_modules/cookie 1775733601556
+377 silly unfinished npm timer reifyNode:node_modules/content-type 1775733601556
+378 silly unfinished npm timer reifyNode:node_modules/content-disposition 1775733601556
+379 silly unfinished npm timer reifyNode:node_modules/combined-stream 1775733601556
+380 silly unfinished npm timer reifyNode:node_modules/chokidar 1775733601556
+381 silly unfinished npm timer reifyNode:node_modules/call-bound 1775733601556
+382 silly unfinished npm timer reifyNode:node_modules/call-bind-apply-helpers 1775733601556
+383 silly unfinished npm timer reifyNode:node_modules/bytes 1775733601556
+384 silly unfinished npm timer reifyNode:node_modules/bson 1775733601556
+385 silly unfinished npm timer reifyNode:node_modules/braces 1775733601556
+386 silly unfinished npm timer reifyNode:node_modules/body-parser 1775733601556
+387 silly unfinished npm timer reifyNode:node_modules/binary-extensions 1775733601556
+388 silly unfinished npm timer reifyNode:node_modules/axios 1775733601556
+389 silly unfinished npm timer reifyNode:node_modules/asynckit 1775733601556
+390 silly unfinished npm timer reifyNode:node_modules/anymatch 1775733601556
+391 silly unfinished npm timer reifyNode:node_modules/accepts 1775733601556
+392 silly unfinished npm timer reifyNode:node_modules/@types/whatwg-url 1775733601556
+393 silly unfinished npm timer reifyNode:node_modules/@types/webidl-conversions 1775733601556
+394 silly unfinished npm timer reifyNode:node_modules/@mongodb-js/saslprep 1775733601556
+395 verbose cwd E:\smartparkingcopy\backend
+396 verbose os Windows_NT 10.0.26200
+397 verbose node v22.12.0
+398 verbose npm  v10.9.2
+399 verbose exit 1
+400 verbose code 1
+401 error A complete log of this run can be found in: e:\smartparkingcopy\.npm-cache\_logs\2026-04-09T11_19_59_370Z-debug-0.log

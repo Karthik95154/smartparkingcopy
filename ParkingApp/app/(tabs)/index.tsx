@@ -10,13 +10,16 @@ import {
   ActivityIndicator,
   Alert,
 } from "react-native";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import * as Location from "expo-location";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import MapView, { Marker, PROVIDER_GOOGLE } from "../../components/MapViewUI";
 import { Palette } from "../../constants/theme";
+import { requestJson } from "../../constants/api";
+
+
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = width * 0.85;
@@ -33,9 +36,10 @@ const DEFAULT_REGION = {
 
 export default function HomeScreen() {
   const router = useRouter();
-  const mapRef = useRef<MapView>(null);
+  const mapRef = useRef<any>(null);
   const flatListRef = useRef<FlatList>(null);
   const hasInitializedRef = useRef(false);
+  const locationRef = useRef<any>(null);
 
   const [location, setLocation] = useState<any>(null);
   const [parkingData, setParkingData] = useState<any[]>([]);
@@ -456,28 +460,49 @@ export default function HomeScreen() {
   // ─── Fetch Parking Data ────────────────────────────────────────────────────
   const fetchParkingData = async (userCoords: any) => {
     try {
-      const res = await fetch("https://backend-j5ha.onrender.com/parking");
-      const data = await res.json();
+      const data = await requestJson<any[]>(`/parking?ts=${Date.now()}`, {
+        headers: {
+          "Cache-Control": "no-cache",
+          Pragma: "no-cache",
+        },
+      });
       const parkingList = Array.isArray(data) ? data : [];
       
       console.log("Raw API response:", data);
       console.log("Response length:", parkingList.length);
 
       const processed = parkingList
-        .map((item: any) => ({
-          ...item,
-          // Always parse lat/lng as floats (API may return strings)
-          latitude: parseFloat(item.latitude),
-          longitude: parseFloat(item.longitude),
-          userDistance: userCoords
-            ? getDistance(
-                userCoords.latitude,
-                userCoords.longitude,
-                parseFloat(item.latitude),
-                parseFloat(item.longitude)
-              )
-            : 0,
-        }))
+        .map((item: any) => {
+          const totalSlots = Number(
+            item.totalSlots ?? item.total_slots ?? item.slots ?? 0
+          );
+          const occupiedSlots = Number(
+            item.occupiedSlots ?? item.occupied_slots ?? item.occupied ?? 0
+          );
+          const availableSlots =
+            item.availableSlots ?? item.available_slots ?? item.available;
+
+          return {
+            ...item,
+            totalSlots,
+            occupiedSlots,
+            availableSlots:
+              availableSlots != null
+                ? Number(availableSlots)
+                : Math.max(0, totalSlots - occupiedSlots),
+            // Always parse lat/lng as floats (API may return strings)
+            latitude: parseFloat(item.latitude),
+            longitude: parseFloat(item.longitude),
+            userDistance: userCoords
+              ? getDistance(
+                  userCoords.latitude,
+                  userCoords.longitude,
+                  parseFloat(item.latitude),
+                  parseFloat(item.longitude)
+                )
+              : 0,
+          };
+        })
         //  Filter out any items with invalid coordinates
         .filter(
           (item: any) =>
@@ -527,13 +552,26 @@ export default function HomeScreen() {
   // ─── Get Current Location ─────────────────────────────────────────────────
   const getCurrentLocation = async () => {
     try {
-      let loc = await Location.getLastKnownPositionAsync({});
-      if (!loc) {
-        loc = await Location.getCurrentPositionAsync({
-          accuracy: Location.Accuracy.Balanced,
-        });
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        console.log("Permission denied");
+        await fetchParkingData(null);
+        return;
       }
-      const coords = loc.coords;
+
+      const loc =
+        (await Location.getCurrentPositionAsync({
+          accuracy: Location.Accuracy.High,
+        }).catch(() => Location.getLastKnownPositionAsync())) || null;
+
+      const coords = loc?.coords;
+      if (!coords) {
+        throw new Error("Location unavailable");
+      }
+
+      console.log("Correct Location:", coords);
+
+      locationRef.current = coords;
       setLocation(coords);
       setSearchText("");
       setActiveSearchLocation(null);
@@ -542,39 +580,77 @@ export default function HomeScreen() {
         {
           latitude: coords.latitude,
           longitude: coords.longitude,
-          latitudeDelta: 0.02,
-          longitudeDelta: 0.02,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
         },
         800
       );
 
-      fetchParkingData(coords);
+      await fetchParkingData(coords);
     } catch (err) {
       console.log("Location Error:", err);
-      // Still fetch parking data even without GPS
+
+      locationRef.current = null;
+      setLocation(null);
       setSearchText("");
       setActiveSearchLocation(null);
-      fetchParkingData(null);
+
+      await fetchParkingData(null);
     }
   };
 
   useEffect(() => {
-    if (hasInitializedRef.current) {
-      return;
-    }
+    let isMounted = true;
+    let isFetching = false;
 
-    hasInitializedRef.current = true;
-
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        //   4: Fetch data even if location denied
-        fetchParkingData(null);
+    const refreshParkingData = async () => {
+      if (!isMounted || isFetching) {
         return;
       }
-      getCurrentLocation();
-    })();
-  });
+
+      isFetching = true;
+      try {
+        await fetchParkingData(locationRef.current ?? null);
+      } finally {
+        isFetching = false;
+      }
+    };
+
+    const initializeParkingData = async () => {
+      if (hasInitializedRef.current) {
+        return;
+      }
+
+      hasInitializedRef.current = true;
+
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (!isMounted) {
+        return;
+      }
+
+      if (status !== "granted") {
+        await refreshParkingData();
+        return;
+      }
+
+      await getCurrentLocation();
+    };
+
+    initializeParkingData();
+
+    const intervalId = setInterval(() => {
+      refreshParkingData();
+    }, 5000);
+
+    return () => {
+      isMounted = false;
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  useEffect(() => {
+    locationRef.current = location;
+  }, [location]);
 
   const locationSuggestions = getLocationSuggestions(parkingData, searchText);
   const showSuggestions =
@@ -644,24 +720,37 @@ export default function HomeScreen() {
         {markersReady &&
           filteredData.map((item) => (
             <Marker
-              key={item._id}
+              key={item.id}
               coordinate={{
                 latitude: item.latitude,
                 longitude: item.longitude,
               }}
               title={item.name}
-              description={`${item.slots} slots • ₹${item.price}/hr`}
+              description={`${item.availableSlots} free / ${item.totalSlots} total • ₹${item.pricePerHour}/hr`}
               pinColor="#fb3600"
               tracksViewChanges={true}
               onPress={() => {
                 console.log("Marker pressed:", item.name);
                 router.push({
                   pathname: "/details",
-                  params: { ...item, id: item._id },
+                  params: { ...item, id: item.id },
                 });
               }}
             />
           ))}
+        {/* User Location Marker */}
+        {location && (
+          <Marker
+            coordinate={{ latitude: location.latitude, longitude: location.longitude }}
+            title="You are here"
+            isUserLocation={true}
+            anchor={{ x: 0.5, y: 0.5 }}
+          >
+            <View style={styles.userDotOuter}>
+              <View style={styles.userDotInner} />
+            </View>
+          </Marker>
+        )}
       </MapView>
 
       {/* ── Search Bar ── */}
@@ -791,7 +880,7 @@ export default function HomeScreen() {
             decelerationRate="fast"
             onViewableItemsChanged={onViewableItemsChanged}
             viewabilityConfig={{ itemVisiblePercentThreshold: 50 }}
-            keyExtractor={(item) => item._id}
+            keyExtractor={(item) => item.id?.toString() || Math.random().toString()}
             contentContainerStyle={{
               paddingHorizontal: (width - CARD_WIDTH) / 2,
             }}
@@ -807,7 +896,7 @@ export default function HomeScreen() {
                   onPress={() =>
                     router.push({
                       pathname: "/details",
-                      params: { ...item, id: item._id },
+                      params: { ...item, id: item.id },
                     })
                   }
                 >
@@ -820,18 +909,18 @@ export default function HomeScreen() {
                         <Ionicons
                           name="car"
                           size={16}
-                          color={item.slots > 10 ? Palette.success : Palette.danger}
+                          color={item.availableSlots > 10 ? Palette.success : Palette.danger}
                         />
                         <Text
                           style={[
                             styles.slotsText,
                             {
                               color:
-                                item.slots > 10 ? Palette.success : Palette.danger,
+                                item.availableSlots > 10 ? Palette.success : Palette.danger,
                             },
                           ]}
                         >
-                          {item.slots} slots
+                          {item.availableSlots} free / {item.totalSlots} total
                         </Text>
                       </View>
                     </View>
@@ -849,7 +938,7 @@ export default function HomeScreen() {
                     <View>
                       <Text style={styles.priceLabel}>Price per hour</Text>
                       <Text style={styles.priceValue}>
-                        ₹{item.price}
+                        ₹{item.pricePerHour}
                         <Text style={styles.perHr}>/hr</Text>
                       </Text>
                     </View>
@@ -890,6 +979,27 @@ const styles = StyleSheet.create({
   },
 
   // ── Marker ──
+  userDotOuter: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(0, 122, 255, 0.25)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  userDotInner: {
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: '#007AFF',
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 4,
+  },
   markerContainer: {
     width: 50,
     height: 50,

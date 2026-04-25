@@ -5,8 +5,27 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
+
+import { useFonts } from 'expo-font';
+import { Ionicons, MaterialIcons, FontAwesome, FontAwesome5, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+
+  //  LOAD ICON FONTS
+  const [fontsLoaded] = useFonts({
+    ...Ionicons.font,
+    ...MaterialIcons.font,
+    ...FontAwesome.font,
+    ...FontAwesome5.font,
+    ...Entypo.font,
+    ...MaterialCommunityIcons.font,
+  });
+
+  //  Prevent render until fonts loaded
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -17,14 +36,9 @@ export default function RootLayout() {
           animation: "fade", 
         }}
       >
-        {/* ENTRY SCREEN (WELCOME) */}
         <Stack.Screen name="index" />
-
-        {/*  AUTH */}
         <Stack.Screen name="login" />
         <Stack.Screen name="signup" />
-
-        {/* MAIN APP */}
         <Stack.Screen name="(tabs)" />
       </Stack>
 

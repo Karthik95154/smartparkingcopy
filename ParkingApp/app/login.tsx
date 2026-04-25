@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -15,41 +15,164 @@ import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Ionicons } from "@expo/vector-icons";
 import { Palette } from "../constants/theme";
+
+import { BACKEND_URL as API_URL } from "../constants/api";
+
 export default function LoginScreen() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState("");
+  const [checkingServer, setCheckingServer] = useState(true);
+
+  // Pre-warm the server when app starts
+  useEffect(() => {
+    const warmupServer = async () => {
+      try {
+        setCheckingServer(true);
+        console.log("Waking up server...");
+        
+        // Try multiple endpoints to wake up the server
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 45000);
+        
+        await fetch(`${API_URL}/health`, {
+          method: "HEAD",
+          signal: controller.signal,
+        }).catch(() => {
+          // Ignore error, just trying to wake the server
+        });
+        
+        clearTimeout(timeoutId);
+        console.log("Server is ready");
+      } catch {
+        console.log("Server warmup attempted");
+      } finally {
+        setCheckingServer(false);
+      }
+    };
+    
+    warmupServer();
+  }, []);
 
   const handleLogin = async () => {
     if (!email || !password) {
       Alert.alert("Missing Info", "Please enter both email and password.");
       return;
     }
+
     setLoading(true);
+    setLoadingMessage("Connecting to server...");
+
+    // Update loading message after delays
+    const timeout1 = setTimeout(() => {
+      if (loading) setLoadingMessage("Server is waking up... (may take 20-30 seconds)");
+    }, 5000);
+    
+    const timeout2 = setTimeout(() => {
+      if (loading) setLoadingMessage("Still connecting... Please wait");
+    }, 15000);
+    
+    const timeout3 = setTimeout(() => {
+      if (loading) setLoadingMessage("Almost there... Completing login");
+    }, 25000);
+
     try {
-      const res = await fetch("https://backend-j5ha.onrender.com/login", {
+      const normalizedEmail = email.trim().toLowerCase();
+      
+      console.log("LOGIN REQUEST:", { email: normalizedEmail, password: "***" });
+      
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: normalizedEmail,
+          password
+        })
       });
-      const data = await res.json();
-      if (res.ok) {
-        await AsyncStorage.setItem("user", JSON.stringify(data.user));
-        router.replace("/(tabs)");
-      } else {
-        Alert.alert("Login Failed", "Account not found.", [
-          { text: "Later", style: "cancel" },
-          { text: "Sign Up", onPress: () => router.push("/signup") },
+
+      const data = await response.json();
+      console.log("LOGIN RESPONSE:", data);
+
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+      clearTimeout(timeout3);
+
+      if (!response.ok) {
+        Alert.alert("Login Failed", data.message || "Invalid email or password.", [
+          { text: "Try Again", style: "cancel", onPress: () => handleLogin() },
+          { text: "Sign Up", onPress: () => router.push("./signup") },
         ]);
+        return;
       }
-    } catch {
-      Alert.alert("Connection Error", "Check your server status.");
+
+      // Login successful
+      await AsyncStorage.setItem("user", JSON.stringify(data.user));
+      Alert.alert("Success", "Login successful!");
+      router.replace("/(tabs)");
+      
+    } catch (error: any) {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+      clearTimeout(timeout3);
+
+      console.error("LOGIN ERROR:", error);
+
+      if (String(error?.message || "").toLowerCase().includes("timed out")) {
+        Alert.alert(
+          "Connection Timeout",
+          "The server is taking too long to respond. This is common with free hosting.\n\nPlease try again in a few moments.",
+          [
+            { text: "Retry", onPress: () => handleLogin() },
+            { text: "Cancel", style: "cancel" }
+          ]
+        );
+      } else {
+        Alert.alert(
+          "Connection Error",
+          "Unable to reach the server. Please check:\n\n• Your internet connection\n• Server status\n\nTry again in a few moments.",
+          [
+            { text: "Retry", onPress: () => handleLogin() },
+            { text: "Cancel", style: "cancel" }
+          ]
+        );
+      }
     } finally {
       setLoading(false);
+      setLoadingMessage("");
     }
   };
+
+  // Show checking server status while warming up
+  if (checkingServer) {
+    return (
+      <LinearGradient colors={Palette.gradients.dark} style={styles.outer}>
+        <View style={styles.container}>
+          <View style={styles.headerSection}>
+            <LinearGradient
+              colors={Palette.gradients.primary}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.logoIcon}
+            >
+              <Ionicons name="car-sport" size={44} color="#fff" />
+            </LinearGradient>
+            <Text style={styles.title}>ParkScope</Text>
+            <Text style={styles.subtitle}>Find • Book • Park with Ease</Text>
+          </View>
+          <View style={styles.loadingServerContainer}>
+            <ActivityIndicator size="large" color={Palette.primary} />
+            <Text style={styles.loadingServerText}>Waking up server...</Text>
+            <Text style={styles.loadingServerSubtext}>This may take 15-20 seconds on first launch</Text>
+          </View>
+        </View>
+      </LinearGradient>
+    );
+  }
 
   return (
     <LinearGradient colors={Palette.gradients.dark} style={styles.outer}>
@@ -69,7 +192,7 @@ export default function LoginScreen() {
               <Ionicons name="car-sport" size={44} color="#fff" />
             </LinearGradient>
             <Text style={styles.title}>ParkScope</Text>
-            <Text style={styles.subtitle}> Find • Book • Park with Ease</Text>
+            <Text style={styles.subtitle}>Find • Book • Park with Ease</Text>
           </View>
 
           {/* CARD */}
@@ -92,6 +215,7 @@ export default function LoginScreen() {
                 onChangeText={setEmail}
                 autoCapitalize="none"
                 keyboardType="email-address"
+                editable={!loading}
               />
             </View>
 
@@ -105,6 +229,7 @@ export default function LoginScreen() {
                 secureTextEntry={!showPassword}
                 value={password}
                 onChangeText={setPassword}
+                editable={!loading}
               />
               <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                 <Ionicons
@@ -115,7 +240,9 @@ export default function LoginScreen() {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.forgotContainer} onPress={() => {}}>
+            <TouchableOpacity style={styles.forgotContainer} onPress={() => {
+              Alert.alert("Reset Password", "Please contact support to reset your password.");
+            }}>
               <Text style={styles.forgotText}>Forgot Password?</Text>
             </TouchableOpacity>
 
@@ -125,7 +252,10 @@ export default function LoginScreen() {
               disabled={loading}
             >
               {loading ? (
-                <ActivityIndicator color="#fff" />
+                <View style={styles.loadingContainer}>
+                  <ActivityIndicator color="#fff" />
+                  <Text style={styles.loadingText}>{loadingMessage}</Text>
+                </View>
               ) : (
                 <View style={styles.buttonContent}>
                   <Text style={styles.buttonText}>Sign In</Text>
@@ -136,7 +266,7 @@ export default function LoginScreen() {
           </LinearGradient>
 
           {/* FOOTER */}
-          <TouchableOpacity onPress={() => router.push("/signup")} style={styles.footer}>
+          <TouchableOpacity onPress={() => router.push("./signup")} style={styles.footer}>
             <Text style={styles.linkText}>
               New here? <Text style={styles.linkBold}>Create Account</Text>
             </Text>
@@ -183,7 +313,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "rgba(255, 255, 255, 0.8)",
   },
-
   card: {
     borderRadius: 24,
     padding: 28,
@@ -194,14 +323,12 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     elevation: 8,
   },
-
   cardTitle: {
     fontSize: 22,
     fontWeight: "700",
     color: Palette.primary,
     marginBottom: 24,
   },
-
   label: {
     color: Palette.text.secondary,
     fontSize: 13,
@@ -211,7 +338,6 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
-
   inputWrapper: {
     flexDirection: "row",
     alignItems: "center",
@@ -227,27 +353,21 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
-
-  icon: { marginRight: 12 },
-
   input: {
     flex: 1,
     paddingVertical: 14,
     color: Palette.text.primary,
     fontSize: 15,
   },
-
   forgotContainer: {
     alignItems: "flex-end",
     marginBottom: 20,
   },
-
   forgotText: {
     color: Palette.primary,
     fontSize: 13,
     fontWeight: "600",
   },
-
   button: {
     backgroundColor: Palette.primary,
     paddingVertical: 16,
@@ -260,33 +380,54 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     elevation: 6,
   },
-
   buttonDisabled: { opacity: 0.6 },
-
   buttonContent: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     gap: 8,
   },
-
   buttonText: {
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "700",
   },
-
   footer: {
     alignItems: "center",
   },
-
   linkText: {
     color: "rgba(255, 255, 255, 0.8)",
     fontSize: 14,
   },
-
   linkBold: {
     color: "#fff",
     fontWeight: "700",
+  },
+  loadingContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  loadingText: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "500",
+  },
+  loadingServerContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 40,
+    gap: 12,
+  },
+  loadingServerText: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "600",
+    marginTop: 20,
+  },
+  loadingServerSubtext: {
+    fontSize: 14,
+    color: "rgba(255,255,255,0.7)",
+    textAlign: "center",
   },
 });

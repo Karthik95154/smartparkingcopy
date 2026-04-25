@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import {
   View,
   Text,
@@ -8,25 +8,40 @@ import {
   RefreshControl,
   SafeAreaView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Palette } from "../../constants/theme";
 import { useRouter } from "expo-router";
+import { useFocusEffect } from "@react-navigation/native";
+import { getUserId, requestJson } from "../../constants/api";
+
+type BookingItem = {
+  _id?: string;
+  id?: string;
+  parkingName?: string;
+  vehicleNumber?: string;
+  spotLabel?: string;
+  slotNumber?: number;
+  allocatedSlotName?: string;
+  startTime?: string;
+  date?: string;
+  hours?: number;
+  totalAmount?: number;
+  paymentStatus?: string;
+  bookingStatus?: string;
+};
 
 export default function BookingsScreen() {
-  const [bookings, setBookings] = useState<any[]>([]);
+  const [bookings, setBookings] = useState<BookingItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [actionBookingId, setActionBookingId] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    fetchBookings();
-  }, []);
-
-  //  Format date
-  const formatDateTime = (dateString: string) => {
+  const formatDateTime = (dateString?: string) => {
     if (!dateString) return "Just now";
     const date = new Date(dateString);
     return (
@@ -35,7 +50,7 @@ export default function BookingsScreen() {
         month: "short",
         year: "numeric",
       }) +
-      " • " +
+      " | " +
       date.toLocaleTimeString("en-IN", {
         hour: "2-digit",
         minute: "2-digit",
@@ -44,165 +59,264 @@ export default function BookingsScreen() {
     );
   };
 
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     try {
       const user = await AsyncStorage.getItem("user");
-      if (!user) return;
+      if (!user) {
+        setBookings([]);
+        return;
+      }
 
       const parsedUser = JSON.parse(user);
+      const userId = getUserId(parsedUser);
+      if (!userId) {
+        setBookings([]);
+        return;
+      }
 
-      const res = await fetch(
-        `https://backend-j5ha.onrender.com/my-bookings/${parsedUser._id}`
-      );
-
-      if (!res.ok) throw new Error("API Error");
-
-      const data = await res.json();
+      const data = await requestJson<any>(`/my-bookings/${userId}`);
       setBookings(Array.isArray(data) ? data : data?.bookings || []);
     } catch (err) {
       console.log("Fetch Error:", err);
+      Alert.alert("Unable to load bookings", "Please try again in a moment.");
     } finally {
       setLoading(false);
       setRefreshing(false);
     }
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchBookings();
+    }, [fetchBookings])
+  );
+
+  const handleBookingAction = async (
+    booking: BookingItem,
+    action: "check-in" | "check-out"
+  ) => {
+    const bookingId = booking.id || booking._id;
+    if (!bookingId) {
+      return;
+    }
+
+    try {
+      setActionBookingId(bookingId);
+
+      const data = await requestJson<any>(`/${action}/${bookingId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({}),
+      });
+
+      Alert.alert(
+        action === "check-in" ? "Checked in" : "Checked out",
+        data?.message || "Booking updated successfully."
+      );
+
+      await fetchBookings();
+    } catch (error: any) {
+      Alert.alert(
+        "Action failed",
+        error?.message || "Unable to update this booking right now."
+      );
+    } finally {
+      setActionBookingId("");
+    }
   };
 
-  const renderItem = ({ item }: any) => (
-    <LinearGradient
-      colors={["#FFFFFF", Palette.bg.lighter]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.card}
-    >
-      {/* DATE */}
-      <View style={styles.dateChip}>
-        <Ionicons name="calendar-outline" size={12} color={Palette.primary} />
-        <Text style={styles.dateText}>
-          {formatDateTime(item?.date)} 
-        </Text>
-      </View>
+  const renderItem = ({ item }: { item: BookingItem }) => {
+    const bookingId = item.id || item._id || "";
+    const isPaid = item.paymentStatus === "Paid";
+    const bookingStatus = item.bookingStatus || "Confirmed";
+    const showReceipt = isPaid;
+    const canCheckIn = isPaid && bookingStatus === "Confirmed";
+    const canCheckOut = bookingStatus === "Checked-In";
+    const activeAction = actionBookingId === bookingId;
+    const slotLabel =
+      item.allocatedSlotName ||
+      (item.slotNumber ? `Slot ${item.slotNumber}` : "") ||
+      item.spotLabel ||
+      "";
 
-      {/* MAIN */}
-      <View style={styles.cardMain}>
-        <View style={styles.leftCol}>
-          <LinearGradient
-            colors={Palette.gradients.primary}
-            style={styles.iconCircle}
-          >
-            <Ionicons name="location-outline" size={20} color="#fff" />
-          </LinearGradient>
+    return (
+      <LinearGradient
+        colors={["#FFFFFF", Palette.bg.lighter]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.card}
+      >
+        <View style={styles.dateChip}>
+          <Ionicons name="calendar-outline" size={12} color={Palette.primary} />
+          <Text style={styles.dateText}>
+            {formatDateTime(item.startTime || item.date)}
+          </Text>
+        </View>
 
-          <View>
-            <Text style={styles.parkingName}>
-              {item?.parkingName || "Parking"}
-            </Text>
+        <View style={styles.cardMain}>
+          <View style={styles.leftCol}>
+            <LinearGradient
+              colors={Palette.gradients.primary}
+              style={styles.iconCircle}
+            >
+              <Ionicons name="location-outline" size={20} color="#fff" />
+            </LinearGradient>
 
-            {/* VEHICLE */}
-            <View style={styles.vehicleTag}>
-              <Ionicons name="car-outline" size={12} color={Palette.info} />
-              <Text style={styles.vehicleText}>
-                {Array.isArray(item?.vehicleNumber)
-                  ? item.vehicleNumber.join(", ")
-                  : item?.vehicleNumber || "N/A"}
+            <View>
+              <Text style={styles.parkingName}>
+                {item.parkingName || "Parking"}
               </Text>
+
+              <View style={styles.vehicleTag}>
+                <Ionicons name="car-outline" size={12} color={Palette.info} />
+                <Text style={styles.vehicleText}>
+                  {item.vehicleNumber || "N/A"}
+                </Text>
+              </View>
+
+              {!!slotLabel && (
+                <View style={styles.spotTag}>
+                  <Ionicons
+                    name="grid-outline"
+                    size={12}
+                    color={Palette.primary}
+                  />
+                  <Text style={styles.spotText}>{slotLabel}</Text>
+                </View>
+              )}
+            </View>
+          </View>
+
+          <View style={styles.badgeStack}>
+            <LinearGradient
+              colors={isPaid ? ["#DCFCE7", "#BBFBEE"] : ["#FEE2E2", "#FECACA"]}
+              style={styles.badge}
+            >
+              <Text
+                style={[
+                  styles.badgeText,
+                  { color: isPaid ? Palette.success : Palette.danger },
+                ]}
+              >
+                {isPaid ? "Paid" : "Pending"}
+              </Text>
+            </LinearGradient>
+
+            <View style={styles.statusPill}>
+              <Text style={styles.statusPillText}>{bookingStatus}</Text>
             </View>
           </View>
         </View>
 
-        {/* STATUS */}
-        <LinearGradient
-          colors={
-            item?.paymentStatus === "Paid"
-              ? ["#DCFCE7", "#BBFBEE"]
-              : ["#FEE2E2", "#FECACA"]
-          }
-          style={styles.badge}
-        >
-          <Text
-            style={[
-              styles.badgeText,
-              {
-                color:
-                  item?.paymentStatus === "Paid"
-                    ? Palette.success
-                    : Palette.danger,
-              },
-            ]}
-          >
-            {item?.paymentStatus === "Paid" ? "✓ Paid" : "⏳ Pending"} 
-          </Text>
-        </LinearGradient>
-      </View>
-
-      {/* STATS */}
-      <View style={styles.statsContainer}>
-        {/* DURATION */}
-        <View style={styles.statBox}>
-          <View style={styles.statIcon}>
-            <Ionicons name="time-outline" size={16} color={Palette.secondary} />
+        <View style={styles.statsContainer}>
+          <View style={styles.statBox}>
+            <View style={styles.statIcon}>
+              <Ionicons name="time-outline" size={16} color={Palette.secondary} />
+            </View>
+            <Text style={styles.statLabel}>DURATION</Text>
+            <Text style={styles.statValue}>
+              {item.hours ? `${Number(item.hours).toFixed(1)} hrs` : "N/A"}
+            </Text>
           </View>
-          <Text style={styles.statLabel}>DURATION</Text>
-          <Text style={styles.statValue}>
-            {item?.hours
-              ? `${Number(item.hours).toFixed(1)} hrs`
-              : "N/A"}
-          </Text>
+
+          <View style={styles.statDivider} />
+
+          <View style={styles.statBox}>
+            <View style={styles.statIcon}>
+              <Ionicons name="cash-outline" size={16} color={Palette.success} />
+            </View>
+            <Text style={styles.statLabel}>AMOUNT</Text>
+            <Text style={[styles.statValue, { color: Palette.success }]}>
+              Rs {item.totalAmount ? Number(item.totalAmount).toFixed(0) : "0"}
+            </Text>
+          </View>
         </View>
 
-        <View style={styles.statDivider} />
-
-        {/* AMOUNT */}
-        <View style={styles.statBox}>
-          <View style={styles.statIcon}>
-            <Ionicons name="cash-outline" size={16} color={Palette.success} />
-          </View>
-          <Text style={styles.statLabel}>AMOUNT</Text>
-          <Text style={[styles.statValue, { color: Palette.success }]}>
-            ₹{item?.totalAmount
-              ? Number(item.totalAmount).toFixed(0)
-              : "0"} 
+        <View style={styles.cardFooter}>
+          <Text style={styles.footerId}>
+            ID: {String(bookingId).slice(-8).toUpperCase()}
           </Text>
+
+          <View style={styles.footerActions}>
+            <TouchableOpacity
+              style={[
+                styles.detailsBtn,
+                !showReceipt && styles.detailsBtnDisabled,
+              ]}
+              onPress={() => {
+                if (!showReceipt) {
+                  Alert.alert(
+                    "Payment Pending",
+                    "Ticket QR is available only after successful payment."
+                  );
+                  return;
+                }
+
+                router.push({
+                  pathname: "/ticket",
+                  params: {
+                    bookingId,
+                    parkingName: item.parkingName,
+                    vehicleNumber: item.vehicleNumber,
+                    spotLabel: item.spotLabel,
+                    date: item.startTime || item.date,
+                    time: item.startTime || item.date,
+                    hours: item.hours?.toString() || "",
+                    amount: item.totalAmount?.toString() || "",
+                    paymentStatus: item.paymentStatus,
+                  },
+                });
+              }}
+            >
+              <Text
+                style={[
+                  styles.detailsBtnText,
+                  !showReceipt && styles.detailsBtnTextDisabled,
+                ]}
+              >
+                {showReceipt ? "Receipt" : "Pending"}
+              </Text>
+              <Ionicons
+                name="chevron-forward-outline"
+                size={14}
+                color={
+                  showReceipt ? Palette.primary : Palette.text.tertiary
+                }
+              />
+            </TouchableOpacity>
+
+            {(canCheckIn || canCheckOut) && (
+              <TouchableOpacity
+                style={styles.actionBtn}
+                onPress={() =>
+                  handleBookingAction(
+                    item,
+                    canCheckOut ? "check-out" : "check-in"
+                  )
+                }
+                disabled={activeAction}
+              >
+                {activeAction ? (
+                  <ActivityIndicator size="small" color="#fff" />
+                ) : (
+                  <Text style={styles.actionBtnText}>
+                    {canCheckOut ? "Check Out" : "Check In"}
+                  </Text>
+                )}
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
-      </View>
-
-      {/* FOOTER */}
-      <View style={styles.cardFooter}>
-        <Text style={styles.footerId}>
-          ID: {(item?._id || "").slice(-8).toUpperCase()}
-        </Text>
-
-        <TouchableOpacity
-  style={styles.detailsBtn}
-  onPress={() =>
-    router.push({
-      pathname: "/ticket",
-      params: {
-        bookingId: item._id,
-        parkingName: item.parkingName,
-        vehicleNumber: item.vehicleNumber,
-        date: item.date,
-        time: new Date(item.date).toLocaleTimeString(),
-        hours: item.hours,
-        amount: item.totalAmount,
-      },
-    })
-  }
->
-  <Text style={styles.detailsBtnText}>Receipt</Text>
-  <Ionicons name="chevron-forward-outline" size={14} color={Palette.primary} />
-</TouchableOpacity>
-      </View>
-    </LinearGradient>
-  );
+      </LinearGradient>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <LinearGradient colors={Palette.gradients.dark} style={styles.flex}>
         <View style={styles.headerSection}>
           <Text style={styles.title}>Booking History</Text>
-          <Text style={styles.subtitle}>
-            All your parking reservations
-          </Text>
+          <Text style={styles.subtitle}>All your parking reservations</Text>
         </View>
 
         {loading ? (
@@ -221,7 +335,7 @@ export default function BookingsScreen() {
           <FlatList
             data={bookings}
             keyExtractor={(item, index) =>
-              item?._id || index.toString()
+              String(item.id || item._id || index)
             }
             renderItem={renderItem}
             contentContainerStyle={styles.list}
@@ -243,7 +357,6 @@ export default function BookingsScreen() {
   );
 }
 
-/* MODERN STYLES */
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -352,6 +465,29 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 
+  spotTag: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-start",
+    gap: 6,
+    marginTop: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: Palette.primary + "12",
+  },
+
+  spotText: {
+    fontSize: 12,
+    color: Palette.primary,
+    fontWeight: "700",
+  },
+
+  badgeStack: {
+    alignItems: "flex-end",
+    gap: 8,
+  },
+
   badge: {
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -365,6 +501,19 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     textTransform: "uppercase",
     letterSpacing: 0.3,
+  },
+
+  statusPill: {
+    backgroundColor: "#E2E8F0",
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+
+  statusPillText: {
+    fontSize: 11,
+    color: Palette.text.secondary,
+    fontWeight: "700",
   },
 
   statsContainer: {
@@ -420,12 +569,20 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     borderTopWidth: 1,
     borderTopColor: Palette.border,
+    gap: 12,
   },
 
   footerId: {
     fontSize: 10,
     color: Palette.text.tertiary,
     fontWeight: "600",
+    flex: 1,
+  },
+
+  footerActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
 
   detailsBtn: {
@@ -442,6 +599,30 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "700",
     color: Palette.primary,
+  },
+
+  detailsBtnDisabled: {
+    opacity: 0.55,
+  },
+
+  detailsBtnTextDisabled: {
+    color: Palette.text.tertiary,
+  },
+
+  actionBtn: {
+    minWidth: 92,
+    backgroundColor: Palette.primary,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+
+  actionBtnText: {
+    color: "#fff",
+    fontSize: 12,
+    fontWeight: "700",
   },
 
   center: {

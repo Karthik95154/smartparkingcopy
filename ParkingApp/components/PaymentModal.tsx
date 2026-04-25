@@ -8,11 +8,12 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import type { PaymentMethod } from "../constants/paymentService";
 
 interface PaymentModalProps {
   visible: boolean;
   onClose: () => void;
-  onPay: () => void;
+  onPay: (method: PaymentMethod) => void;
   amount: number;
   loading: boolean;
 }
@@ -24,43 +25,51 @@ export const PaymentModal = ({
   amount,
   loading,
 }: PaymentModalProps) => (
-  <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
+  <Modal
+    visible={visible}
+    transparent
+    animationType="fade"
+    onRequestClose={onClose}
+  >
     <View style={styles.modalOverlay}>
       <View style={styles.premiumModalContent}>
-
-        <LinearGradient colors={["#667eea", "#764ba2"]} style={styles.modalHeader}>
+        <LinearGradient
+          colors={["#667eea", "#764ba2"]}
+          style={styles.modalHeader}
+        >
           <Text style={styles.modalTitle}>Secure Payment</Text>
-          <Text style={styles.modalSubtitle}>Total: ₹{amount}</Text>
+          <Text style={styles.modalSubtitle}>Total: Rs {amount.toFixed(0)}</Text>
         </LinearGradient>
 
         <View style={styles.paymentOptions}>
-
           <TouchableOpacity
             style={styles.methodButton}
-            onPress={onPay}
+            onPress={() => onPay("upi")}
             disabled={loading}
           >
             {loading ? (
-              <ActivityIndicator color="#667eea" />
+              <ActivityIndicator color="#4338CA" />
             ) : (
-              <Text>📱 Pay with UPI</Text>
+              <>
+                <Text style={styles.methodButtonText}>Pay with UPI</Text>
+                <Text style={styles.methodHint}>Google Pay, PhonePe, BHIM</Text>
+              </>
             )}
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.methodButton}
-            onPress={onPay}
+            onPress={() => onPay("card")}
             disabled={loading}
           >
-            <Text>💳 Pay with Card / Netbanking</Text>
+            <Text style={styles.methodButtonText}>Pay with Card / Netbanking</Text>
+            <Text style={styles.methodHint}>Cards, netbanking, wallet</Text>
           </TouchableOpacity>
-
         </View>
 
         <TouchableOpacity onPress={onClose} style={styles.cancelButton}>
-          <Text style={{ color: "#64748B" }}>Maybe Later</Text>
+          <Text style={styles.cancelText}>Maybe Later</Text>
         </TouchableOpacity>
-
       </View>
     </View>
   </Modal>
@@ -100,12 +109,25 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     borderColor: "#E2E8F0",
-    alignItems: "center",
+    alignItems: "flex-start",
+    gap: 4,
+  },
+  methodButtonText: {
+    color: "#0F172A",
+    fontWeight: "700",
+    fontSize: 15,
+  },
+  methodHint: {
+    color: "#64748B",
+    fontSize: 12,
   },
   cancelButton: {
     padding: 15,
     alignItems: "center",
     borderTopWidth: 1,
     borderTopColor: "#E2E8F0",
+  },
+  cancelText: {
+    color: "#64748B",
   },
 });

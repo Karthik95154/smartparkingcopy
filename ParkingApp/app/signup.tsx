@@ -15,6 +15,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Ionicons } from "@expo/vector-icons";
+import { ApiError, requestJson } from "../constants/api";
 
 export default function SignupScreen() {
   const router = useRouter();
@@ -26,9 +27,9 @@ export default function SignupScreen() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  //  Validations
-  const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validatePhone = (phone: string) => /^[6-9]\d{9}$/.test(phone);
+  const validateEmail = (emailValue: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+  const validatePhone = (phoneValue: string) => /^[6-9]\d{9}$/.test(phoneValue);
 
   const handleSignup = async () => {
     if (!name || !email || !phone || !password) {
@@ -42,7 +43,10 @@ export default function SignupScreen() {
     }
 
     if (!validatePhone(phone)) {
-      Alert.alert("Invalid Phone", "Please enter a valid 10-digit mobile number.");
+      Alert.alert(
+        "Invalid Phone",
+        "Please enter a valid 10-digit mobile number."
+      );
       return;
     }
 
@@ -54,23 +58,21 @@ export default function SignupScreen() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://backend-j5ha.onrender.com/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, password }),
-      });
+    const data = await requestJson<any>("/auth/signup", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name, email, phone, password }),
+});
 
-      const data = await res.json();
-
-      if (res.ok) {
-        await AsyncStorage.setItem("user", JSON.stringify(data.user));
-        Alert.alert("Welcome! 🚗", "Account created successfully.");
-        router.replace("/(tabs)");
+      await AsyncStorage.setItem("user", JSON.stringify(data.user));
+      Alert.alert("Welcome!", "Account created successfully.");
+      router.replace("/(tabs)");
+    } catch (error) {
+      if (error instanceof ApiError) {
+        Alert.alert("Signup Failed", error.message || "Something went wrong.");
       } else {
-        Alert.alert("Signup Failed", data.message || "Something went wrong.");
+        Alert.alert("Connection Error", "Check your server status.");
       }
-    } catch {
-      Alert.alert("Connection Error", "Check your server status.");
     } finally {
       setLoading(false);
     }
@@ -82,22 +84,29 @@ export default function SignupScreen() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.flex}
       >
-        <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-          {/* HEADER */}
+        <ScrollView
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.headerSection}>
             <View style={styles.logoIcon}>
               <Ionicons name="person-add-outline" size={40} color="#2563EB" />
             </View>
             <Text style={styles.title}>Create Account</Text>
-            <Text style={styles.subtitle}>Join ParkScope for easy parking</Text>
+            <Text style={styles.subtitle}>
+              Join ParkScope for easy parking
+            </Text>
           </View>
 
-          {/* CARD */}
           <View style={styles.card}>
-            {/* FULL NAME */}
             <Text style={styles.label}>Full Name</Text>
             <View style={styles.inputWrapper}>
-              <Ionicons name="person-outline" size={20} color="#94A3B8" style={styles.icon} />
+              <Ionicons
+                name="person-outline"
+                size={20}
+                color="#94A3B8"
+                style={styles.icon}
+              />
               <TextInput
                 placeholder="John Doe"
                 placeholderTextColor="#94A3B8"
@@ -107,10 +116,14 @@ export default function SignupScreen() {
               />
             </View>
 
-            {/* EMAIL */}
             <Text style={styles.label}>Email Address</Text>
             <View style={styles.inputWrapper}>
-              <Ionicons name="mail-outline" size={20} color="#94A3B8" style={styles.icon} />
+              <Ionicons
+                name="mail-outline"
+                size={20}
+                color="#94A3B8"
+                style={styles.icon}
+              />
               <TextInput
                 placeholder="name@example.com"
                 placeholderTextColor="#94A3B8"
@@ -122,10 +135,14 @@ export default function SignupScreen() {
               />
             </View>
 
-            {/* PHONE */}
             <Text style={styles.label}>Phone Number</Text>
             <View style={styles.inputWrapper}>
-              <Ionicons name="call-outline" size={20} color="#94A3B8" style={styles.icon} />
+              <Ionicons
+                name="call-outline"
+                size={20}
+                color="#94A3B8"
+                style={styles.icon}
+              />
               <TextInput
                 placeholder="9876543210"
                 placeholderTextColor="#94A3B8"
@@ -137,10 +154,14 @@ export default function SignupScreen() {
               />
             </View>
 
-            {/* PASSWORD */}
             <Text style={styles.label}>Password</Text>
             <View style={styles.inputWrapper}>
-              <Ionicons name="lock-closed-outline" size={20} color="#94A3B8" style={styles.icon} />
+              <Ionicons
+                name="lock-closed-outline"
+                size={20}
+                color="#94A3B8"
+                style={styles.icon}
+              />
               <TextInput
                 placeholder="Min. 4 characters"
                 placeholderTextColor="#94A3B8"
@@ -149,7 +170,10 @@ export default function SignupScreen() {
                 value={password}
                 onChangeText={setPassword}
               />
-              <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={styles.eyeIcon}>
+              <TouchableOpacity
+                onPress={() => setShowPassword(!showPassword)}
+                style={styles.eyeIcon}
+              >
                 <Ionicons
                   name={showPassword ? "eye-off-outline" : "eye-outline"}
                   size={20}
@@ -158,7 +182,6 @@ export default function SignupScreen() {
               </TouchableOpacity>
             </View>
 
-            {/* SIGNUP BUTTON */}
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleSignup}
@@ -175,10 +198,13 @@ export default function SignupScreen() {
             </TouchableOpacity>
           </View>
 
-          {/* FOOTER */}
-          <TouchableOpacity onPress={() => router.push("/login")} style={styles.footer}>
+          <TouchableOpacity
+            onPress={() => router.push("/login")}
+            style={styles.footer}
+          >
             <Text style={styles.linkText}>
-              Already have an account? <Text style={styles.linkBold}>Login</Text>
+              Already have an account?{" "}
+              <Text style={styles.linkBold}>Login</Text>
             </Text>
           </TouchableOpacity>
         </ScrollView>
